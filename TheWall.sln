@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWall", "TheWall\TheWall.csproj", "{6A4E5526-D261-4882-8252-476A5DA2D7C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
