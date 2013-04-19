@@ -9,6 +9,11 @@ namespace TheWall.Model.Entities
 {
     public class TheWallContext : DbContext
     {
+        public TheWallContext()
+        {
+
+        }
+
         public DbSet<Country> Countries { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
