@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWall", "TheWall\TheWall.csproj", "{6A4E5526-D261-4882-8252-476A5DA2D7C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWall.Web", "TheWall\TheWall.Web.csproj", "{6A4E5526-D261-4882-8252-476A5DA2D7C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWall.Model", "TheWall.Model\TheWall.Model.csproj", "{78FFBE56-FACC-49EF-A1BB-D0DC99DD79F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A4E5526-D261-4882-8252-476A5DA2D7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78FFBE56-FACC-49EF-A1BB-D0DC99DD79F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78FFBE56-FACC-49EF-A1BB-D0DC99DD79F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78FFBE56-FACC-49EF-A1BB-D0DC99DD79F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78FFBE56-FACC-49EF-A1BB-D0DC99DD79F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
