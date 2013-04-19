@@ -30,7 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,7 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Availability.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Feedback.cs" />
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\Gender.cs" />
+    <Compile Include="Entities\Mood.cs" />
+    <Compile Include="Entities\Reason.cs" />
+    <Compile Include="Entities\State.cs" />
+    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\TheWallContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
