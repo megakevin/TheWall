@@ -33,11 +33,13 @@ namespace TheWall.Model.Entities
 
         [Display(Name = "Password")]
         [StringLength(50, ErrorMessage = "Can't be longer than 50 characters")]  
-        [Display(Name = "Required")]
         [Required]
         public string Password
         {
-            private get;
+            private get
+            {
+                return Password;
+            }
             
             set
             {
