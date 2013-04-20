@@ -6,11 +6,15 @@ using System.Text;
 
 namespace TheWall.Model.Entities
 {
+    /// <summary>
+    /// Los paises
+    /// </summary>
     public class Country
     {
-        [Key]
         public int Id { get; set; }
 
+        [MaxLength(50, ErrorMessage = "El nombre del paise no puede ser mayor de 50 caracteres" )]
+        [Required(ErrorMessage = "Name's Required")]
         public string Name { get; set; }
     }
 }
