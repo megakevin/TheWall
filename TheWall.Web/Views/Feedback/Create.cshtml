@@ -1,4 +1,4 @@
-﻿@model TheWall.Model.Entities.Feedback
+﻿@model TheWall.Model.Feedback
 
 @{
     ViewBag.Title = "Create";
@@ -10,9 +10,6 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    @Html.HiddenFor(model => model.Course.Id)
-    @Html.HiddenFor(model => model.Student.Id)
-    
     <fieldset>
         <legend>Feedback</legend>
 
@@ -23,14 +20,30 @@
             @Html.EditorFor(model => model.Text)
             @Html.ValidationMessageFor(model => model.Text)
         </div>
+
         <div class="editor-label">
-            @Html.LabelFor(model => model.Mood.Id)
+            @Html.LabelFor(model => model.CourseId, "Course")
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.Mood.Id, (SelectList)ViewBag.MoodSelectList)
-            @Html.ValidationMessageFor(model => model.Mood.Id)
+            @Html.DropDownList("CourseId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CourseId)
         </div>
-        
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentId, "Student")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("StudentId", String.Empty)
+            @Html.ValidationMessageFor(model => model.StudentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MoodId, "Mood")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MoodId", String.Empty)
+            @Html.ValidationMessageFor(model => model.MoodId)
+        </div>
 
         <p>
             <input type="submit" value="Create" />

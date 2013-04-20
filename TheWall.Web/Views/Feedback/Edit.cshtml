@@ -1,4 +1,4 @@
-﻿@model TheWall.Model.Entities.Feedback
+﻿@model TheWall.Model.Feedback
 
 @{
     ViewBag.Title = "Edit";
@@ -21,6 +21,30 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Text)
             @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CourseId, "Course")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CourseId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CourseId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentId, "Student")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("StudentId", String.Empty)
+            @Html.ValidationMessageFor(model => model.StudentId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MoodId, "Mood")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MoodId", String.Empty)
+            @Html.ValidationMessageFor(model => model.MoodId)
         </div>
 
         <p>

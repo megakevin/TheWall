@@ -38,6 +38,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,14 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Availability.cs" />
     <Compile Include="Entities\Country.cs" />
-    <Compile Include="Entities\Feedback.cs" />
     <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\Feedback.cs" />
+    <Compile Include="Entities\Gender.cs" />
     <Compile Include="Entities\Mood.cs" />
     <Compile Include="Entities\Reason.cs" />
     <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\Student.cs" />
-    <Compile Include="Entities\TheWallContext.cs" />
+    <Compile Include="Entities\TheWall.Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +66,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

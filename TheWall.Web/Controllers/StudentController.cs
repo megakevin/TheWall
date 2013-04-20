@@ -5,20 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TheWall.Model.Entities;
+using TheWall.Model;
 
 namespace TheWall.Web.Controllers
 {
     public class StudentController : Controller
     {
-        private TheWallContext db = new TheWallContext();
+        private TheWallEntities db = new TheWallEntities();
 
         //
         // GET: /Student/
 
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            var students = db.Students.Include(s => s.Gender).Include(s => s.State);
+            return View(students.ToList());
         }
 
         //
@@ -39,6 +40,8 @@ namespace TheWall.Web.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.GenderId = new SelectList(db.Genders, "Id", "Name");
+            ViewBag.StateId = new SelectList(db.States, "Id", "Name");
             return View();
         }
 
@@ -56,6 +59,8 @@ namespace TheWall.Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.GenderId = new SelectList(db.Genders, "Id", "Name", student.GenderId);
+            ViewBag.StateId = new SelectList(db.States, "Id", "Name", student.StateId);
             return View(student);
         }
 
@@ -69,6 +74,8 @@ namespace TheWall.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.GenderId = new SelectList(db.Genders, "Id", "Name", student.GenderId);
+            ViewBag.StateId = new SelectList(db.States, "Id", "Name", student.StateId);
             return View(student);
         }
 
@@ -85,6 +92,8 @@ namespace TheWall.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.GenderId = new SelectList(db.Genders, "Id", "Name", student.GenderId);
+            ViewBag.StateId = new SelectList(db.States, "Id", "Name", student.StateId);
             return View(student);
         }
 

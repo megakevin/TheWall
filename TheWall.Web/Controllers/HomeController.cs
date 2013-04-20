@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TheWall.Model.Entities;
+//using TheWall.Model.Entities;
 
 namespace TheWall.Web.Controllers
 {
@@ -11,10 +11,9 @@ namespace TheWall.Web.Controllers
     {
         public ActionResult Index()
         {
-            var db = new TheWallContext();
-            db.Countries.Add(new Country() { Name = "Kings Landing" });
-
-
+            //var db = new TheWallContext();
+            //db.Countries.Add(new Country() { Name = "Kings Landing" });
+            
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();

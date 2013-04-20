@@ -1,0 +1,36 @@
+﻿@model TheWall.Model.Reason
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Reason</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mood.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mood.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Feedback.Text)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Feedback.Text)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,4 +1,4 @@
-﻿@model TheWall.Model.Entities.Feedback
+﻿@model TheWall.Model.Feedback
 
 @{
     ViewBag.Title = "Delete";
@@ -15,6 +15,27 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Text)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Course.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Course.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Student.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Student.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Mood.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mood.Description)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

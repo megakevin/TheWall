@@ -5,20 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TheWall.Model.Entities;
+using TheWall.Model;
 
 namespace TheWall.Web.Controllers
 {
     public class FeedbackController : Controller
     {
-        private TheWallContext db = new TheWallContext();
+        private TheWallEntities db = new TheWallEntities();
 
         //
         // GET: /Feedback/
 
         public ActionResult Index()
         {
-            return View(db.Feedbacks.ToList());
+            var feedbacks = db.Feedbacks.Include(f => f.Course).Include(f => f.Mood).Include(f => f.Student);
+            return View(feedbacks.ToList());
         }
 
         //
@@ -37,10 +38,12 @@ namespace TheWall.Web.Controllers
         //
         // GET: /Feedback/Create
 
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
-            ViewBag.MoodSelectList = new SelectList(db.Moods, "Id", "Description");
-            return View(new Feedback() { Course = new Course() { Id = 1 }, Student = new Student() { Id = 1 } });
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
+            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description");
+            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName");
+            return View();
         }
 
         //
@@ -57,6 +60,9 @@ namespace TheWall.Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", feedback.CourseId);
+            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", feedback.MoodId);
+            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", feedback.StudentId);
             return View(feedback);
         }
 
@@ -70,6 +76,9 @@ namespace TheWall.Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", feedback.CourseId);
+            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", feedback.MoodId);
+            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", feedback.StudentId);
             return View(feedback);
         }
 
@@ -86,6 +95,9 @@ namespace TheWall.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", feedback.CourseId);
+            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", feedback.MoodId);
+            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", feedback.StudentId);
             return View(feedback);
         }
 

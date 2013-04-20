@@ -16,8 +16,8 @@ namespace TheWall.Web
     {
         protected void Application_Start()
         {
-            System.Data.Entity.Database.SetInitializer<TheWall.Model.Entities.TheWallContext>(
-                new System.Data.Entity.DropCreateDatabaseIfModelChanges<TheWall.Model.Entities.TheWallContext>());
+           // System.Data.Entity.Database.SetInitializer<TheWall.Model.Entities.TheWallContext>(
+           //     new System.Data.Entity.DropCreateDatabaseIfModelChanges<TheWall.Model.Entities.TheWallContext>());
 
             AreaRegistration.RegisterAllAreas();
 

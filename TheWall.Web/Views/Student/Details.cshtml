@@ -1,4 +1,4 @@
-﻿@model TheWall.Model.Entities.Student
+﻿@model TheWall.Model.Student
 
 @{
     ViewBag.Title = "Details";
@@ -31,6 +31,13 @@
     </div>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gender.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender.Name)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.BirthDate)
     </div>
     <div class="display-field">
@@ -49,6 +56,13 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.PostalCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.State.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State.Name)
     </div>
 </fieldset>
 <p>

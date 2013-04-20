@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TheWall.Model.Entities.Student>
+﻿@model IEnumerable<TheWall.Model.Student>
 
 @{
     ViewBag.Title = "Index";
@@ -21,6 +21,9 @@
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Gender.Name)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.BirthDate)
         </th>
         <th>
@@ -28,6 +31,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State.Name)
         </th>
         <th></th>
     </tr>
@@ -44,6 +50,9 @@
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Gender.Name)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.BirthDate)
         </td>
         <td>
@@ -51,6 +60,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State.Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
