@@ -1,0 +1,47 @@
+﻿@model TheWall.Model.Entities.Feedback
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.Course.Id)
+    @Html.HiddenFor(model => model.Student.Id)
+    
+    <fieldset>
+        <legend>Feedback</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mood.Id)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Mood.Id, (SelectList)ViewBag.MoodSelectList)
+            @Html.ValidationMessageFor(model => model.Mood.Id)
+        </div>
+        
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
