@@ -8,6 +8,7 @@ namespace TheWall.Model
     public partial class TheWallEntities : DbContext
     {
         public TheWallEntities()
+            : base("TheWallEntities")
             //: base("name=TheWallEntities")
         {
         }

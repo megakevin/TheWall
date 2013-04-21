@@ -11,7 +11,8 @@ namespace TheWall.Web.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection")
+            : base("TheWallEntities")
+            //: base("DefaultConnection")
         {
         }
 
