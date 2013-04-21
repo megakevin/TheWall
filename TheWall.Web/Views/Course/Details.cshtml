@@ -1,12 +1,12 @@
 ﻿@model TheWall.Model.Course
 
-@{
+@*@{
     ViewBag.Title = "Details";
-}
+}*@
 
 <h2>Details</h2>
 
-<fieldset>
+@*<fieldset>
     <legend>Course</legend>
 
     <div class="display-label">
@@ -36,7 +36,36 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Url)
     </div>
-</fieldset>
+</fieldset>*@
+
+<div style="border: 1px solid #808080">
+    <p>
+        <a href="@Model.Url">@Model.Name</a> 
+        @Html.ActionLink("Stats", "Index", "Stats")
+    </p>
+    <p>
+        Available: @Model.Availability.Description
+    </p>
+    <p>
+        @Model.Description
+    </p>
+
+    @Html.ActionLink("Details", "Details", new { id = Model.Id })
+
+</div> 
+
+<div style="border: 1px solid #808080">       
+
+    @Html.Action("Index", "Feedback", new { id = Model.Id })
+
+</div>
+
+<div style="border: 1px solid #808080">
+
+    @Html.Action("Create", "Feedback", new { id = Model.Id })
+
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

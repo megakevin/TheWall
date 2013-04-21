@@ -5,13 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
+using TheWall.Model;
 
 namespace TheWall.Web.Models
 {
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection")
+            : base("TheWallEntities")
+            //: base("DefaultConnection")
         {
         }
 
@@ -86,6 +88,39 @@ namespace TheWall.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        /*We tried to change the world too fast*/
+        [Display(Name = "First Name")]
+        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [NotMapped]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [NotMapped]
+        public string LastName { get; set; }
+
+        [NotMapped]
+        public int GenderId { get; set; }
+
+        [NotMapped]
+        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        public DateTime BirthDate { get; set; }
+
+        [NotMapped]
+        [StringLength(100, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        public string City { get; set; }
+
+        [NotMapped]
+        [StringLength(10, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        public string PostalCode { get; set; }
+
+        [NotMapped]
+        public int StateId { get; set; }
     }
 
     public class ExternalLogin

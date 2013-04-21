@@ -18,7 +18,7 @@ namespace TheWall.Web.Controllers
 
         public ActionResult Index()
         {
-            var reasons = db.Reasons.Include(r => r.Feedback).Include(r => r.Mood);
+            var reasons = db.Reasons.Include(r => r.Mood);
             return View(reasons.ToList());
         }
 
@@ -40,8 +40,7 @@ namespace TheWall.Web.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.FeedbackId = new SelectList(db.Feedbacks, "Id", "Text");
-            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description");
+            ViewBag.MoodId = new SelectList(db.Moods, "MoodId", "Description");
             return View();
         }
 
@@ -59,8 +58,7 @@ namespace TheWall.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FeedbackId = new SelectList(db.Feedbacks, "Id", "Text", reason.FeedbackId);
-            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", reason.MoodId);
+            ViewBag.MoodId = new SelectList(db.Moods, "MoodId", "Description", reason.MoodId);
             return View(reason);
         }
 
@@ -74,8 +72,7 @@ namespace TheWall.Web.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FeedbackId = new SelectList(db.Feedbacks, "Id", "Text", reason.FeedbackId);
-            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", reason.MoodId);
+            ViewBag.MoodId = new SelectList(db.Moods, "MoodId", "Description", reason.MoodId);
             return View(reason);
         }
 
@@ -92,8 +89,7 @@ namespace TheWall.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FeedbackId = new SelectList(db.Feedbacks, "Id", "Text", reason.FeedbackId);
-            ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", reason.MoodId);
+            ViewBag.MoodId = new SelectList(db.Moods, "MoodId", "Description", reason.MoodId);
             return View(reason);
         }
 

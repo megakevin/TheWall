@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using TheWall.Web.Filters;
 using TheWall.Web.Models;
+using TheWall.Model;
 
 namespace TheWall.Web.Controllers
 {
@@ -17,6 +18,8 @@ namespace TheWall.Web.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private TheWallEntities db = new TheWallEntities();
+
         //
         // GET: /Account/Login
 
@@ -63,6 +66,8 @@ namespace TheWall.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.GenderId = new SelectList(db.Genders, "Id", "Name");
+            ViewBag.StateId = new SelectList(db.States, "Id", "Name");
             return View();
         }
 
@@ -79,7 +84,27 @@ namespace TheWall.Web.Controllers
                 // Attempt to register the user
                 try
                 {
+                    //using (TransactionScope tran = new TransactionScope())
+                    //{
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
+                    db.Students.Add(new Student()
+                    {
+                        UserId = WebSecurity.GetUserId(model.UserName),
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        GenderId = model.GenderId,
+                        BirthDate = model.BirthDate,
+                        City = model.City,
+                        PostalCode = model.PostalCode,
+                        StateId = model.StateId
+                    });
+
+                    db.SaveChanges();
+
+                    //    tran.Complete();
+                    //}                    
+
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

@@ -22,15 +22,8 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Mood.Description)
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Feedback.Text)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Feedback.Text)
-    </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ReasonId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

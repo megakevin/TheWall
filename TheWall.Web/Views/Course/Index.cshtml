@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<TheWall.Model.Course>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
+@*<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -47,5 +43,22 @@
         </td>
     </tr>
 }
+</table>*@
 
-</table>
+@foreach (var item in Model)
+{
+    <div style="border: 1px solid #808080">
+        <p>
+            <a href="@item.Url">@item.Name</a>
+        </p>
+        <p>
+            Available: @item.Availability.Description
+        </p>
+        <p>
+            @item.Description
+        </p>
+
+        @Html.ActionLink("Details", "Details", new { id=item.Id })
+
+    </div>    
+}     

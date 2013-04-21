@@ -17,9 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Mood.Description)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Feedback.Text)
-        </th>
         <th></th>
     </tr>
 
@@ -32,12 +29,9 @@
             @Html.DisplayFor(modelItem => item.Mood.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Feedback.Text)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReasonId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReasonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReasonId })
         </td>
     </tr>
 }
