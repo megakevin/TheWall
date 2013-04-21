@@ -1,12 +1,6 @@
 ﻿@model IEnumerable<TheWall.Model.Feedback>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
@@ -48,4 +42,21 @@
     </tr>
 }
 
-</table>
+</table>*@
+
+<h2>List</h2>
+
+@foreach (var item in Model)
+{
+    <div style="border: 1px solid #808080">
+        <p>
+            @item.Mood.Description
+        </p>
+        <p>
+            @item.Text
+        </p>
+        <p>
+            @item.Student.FirstName
+        </p>        
+    </div>    
+}

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheWall.Model;
+using WebMatrix.WebData;
 
 namespace TheWall.Web.Controllers
 {
@@ -18,8 +19,10 @@ namespace TheWall.Web.Controllers
 
         public ActionResult Index(string id)
         {
-            var feedbacks = db.Feedbacks.Where(f => f.CourseId == Convert.ToInt32(id)).Include(f => f.Course).Include(f => f.Mood).Include(f => f.Student);
-            return View(feedbacks.ToList());
+            int CourseId = Convert.ToInt32(id);
+
+            var feedbacks = db.Feedbacks.Where(f => f.CourseId == CourseId).Include(f => f.Course).Include(f => f.Mood).Include(f => f.Student);
+            return PartialView(feedbacks.ToList());
         }
 
         //
@@ -38,12 +41,22 @@ namespace TheWall.Web.Controllers
         //
         // GET: /Feedback/Create
 
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
-            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name");
+            int CourseId = Convert.ToInt32(id);
+            int StudentId = 0;
+
+            //try
+            //{
+                StudentId = db.Students.Where(s => s.UserId == WebSecurity.CurrentUserId).First().Id;
+            //}
+            //catch (Exception ex)
+            //{
+            //    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Course") });
+            //}                       
+
             ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description");
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName");
-            return View();
+            return PartialView(new Feedback() { CourseId = CourseId, StudentId = StudentId });
         }
 
         //
@@ -57,13 +70,17 @@ namespace TheWall.Web.Controllers
             {
                 db.Feedbacks.Add(feedback);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", feedback.MoodId);
+
+                return PartialView(new Feedback() { CourseId = feedback.CourseId, StudentId = feedback.StudentId });// RedirectToAction("Index", "Course");
             }
 
-            ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", feedback.CourseId);
+            //ViewBag.CourseId = new SelectList(db.Courses, "Id", "Name", feedback.CourseId);
             ViewBag.MoodId = new SelectList(db.Moods, "Id", "Description", feedback.MoodId);
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", feedback.StudentId);
-            return View(feedback);
+            //ViewBag.StudentId = new SelectList(db.Students, "Id", "FirstName", feedback.StudentId);
+
+            return PartialView(new Feedback() { CourseId = feedback.CourseId, StudentId = feedback.StudentId }); //return RedirectToAction("Index", "Course");
         }
 
         //

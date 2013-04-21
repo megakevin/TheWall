@@ -38,9 +38,16 @@
     </div>
 </fieldset>
 
-<div>
+<div style="border: 1px solid #808080">
+       
 
     @Html.Action("Index", "Feedback", new { id = Model.Id })
+
+</div>
+
+<div style="border: 1px solid #808080">
+
+    @Html.Action("Create", "Feedback", new { id = Model.Id })
 
 </div>
 

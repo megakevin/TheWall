@@ -1,9 +1,5 @@
 ﻿@model TheWall.Model.Feedback
 
-@{
-    ViewBag.Title = "Create";
-}
-
 <h2>Create</h2>
 
 @using (Html.BeginForm()) {
@@ -13,29 +9,8 @@
     <fieldset>
         <legend>Feedback</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Text)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Text)
-            @Html.ValidationMessageFor(model => model.Text)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.CourseId, "Course")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("CourseId", String.Empty)
-            @Html.ValidationMessageFor(model => model.CourseId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.StudentId, "Student")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("StudentId", String.Empty)
-            @Html.ValidationMessageFor(model => model.StudentId)
-        </div>
+        @Html.HiddenFor(model => model.CourseId)
+        @Html.HiddenFor(model => model.StudentId)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.MoodId, "Mood")
@@ -45,15 +20,20 @@
             @Html.ValidationMessageFor(model => model.MoodId)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
         <p>
             <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
