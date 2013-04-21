@@ -27,6 +27,39 @@
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
+            <li>
+                @Html.LabelFor(m => m.FirstName)
+                @Html.EditorFor(m => m.FirstName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName)
+                @Html.EditorFor(m => m.LastName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.GenderId, "Gender")
+                @Html.DropDownList("GenderId", String.Empty)
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.BirthDate)
+                @Html.EditorFor(m => m.BirthDate)
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.City)
+                @Html.EditorFor(m => m.City)
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.PostalCode)
+                @Html.EditorFor(m => m.PostalCode)
+            </li>
+
+            <li>
+                @Html.LabelFor(m => m.StateId, "State")
+                @Html.DropDownList("StateId", String.Empty)
+            </li>
+            
         </ol>
         <input type="submit" value="Register" />
     </fieldset>

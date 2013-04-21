@@ -18,30 +18,14 @@ namespace TheWall.Model
         [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
         public string FirstName { get; set; }
 
-        [Display(Name = "Lasr Name")]
+        [Display(Name = "Last Name")]
         [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
         [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
         public string LastName { get; set; }
 
-        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
-        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
-        public string UserName { get; set; }
-
-        [StringLength(50, ErrorMessageResourceName = "StringLengthErrorMessage", ErrorMessageResourceType = typeof(Resources))]
-        [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
-        public string Password { get; set; }
-        //public string Password
-        //{
-        //    get 
-        //    {
-        //        return Password;
-        //    }
-        //    set
-        //    {               
-        //        value = System.Web.Helpers.Crypto.HashPassword(value);
-        //    }
-        //}
-
+        [Required]
+        public int UserId { get; set; }
+        
         public int GenderId { get; set; }
                 
         [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
@@ -60,10 +44,5 @@ namespace TheWall.Model
         public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual Gender Gender { get; set; }
         public virtual State State { get; set; }
-
-        //public bool VerifyPassword(string PlainTextPassword)
-        //{
-        //    return System.Web.Helpers.Crypto.VerifyHashedPassword(this.Password, PlainTextPassword);
-        //}
     }
 }

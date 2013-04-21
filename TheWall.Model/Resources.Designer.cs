@@ -22,7 +22,7 @@ namespace TheWall.Model {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TheWall.Model {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TheWall.Model.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace TheWall.Model {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace TheWall.Model {
         /// <summary>
         ///   Looks up a localized string similar to The field {0} is required.
         /// </summary>
-        internal static string RequiredErrorMessage {
+        public static string RequiredErrorMessage {
             get {
                 return ResourceManager.GetString("RequiredErrorMessage", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace TheWall.Model {
         /// <summary>
         ///   Looks up a localized string similar to The field {0} can&apos;t be longer than {1} characters.
         /// </summary>
-        internal static string StringLengthErrorMessage {
+        public static string StringLengthErrorMessage {
             get {
                 return ResourceManager.GetString("StringLengthErrorMessage", resourceCulture);
             }
