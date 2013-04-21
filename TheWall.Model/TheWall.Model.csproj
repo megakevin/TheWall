@@ -59,6 +59,7 @@
     <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\TheWall.Context.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
