@@ -16,9 +16,9 @@ namespace TheWall.Web.Controllers
         //
         // GET: /Feedback/
 
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            var feedbacks = db.Feedbacks.Include(f => f.Course).Include(f => f.Mood).Include(f => f.Student);
+            var feedbacks = db.Feedbacks.Where(f => f.CourseId == Convert.ToInt32(id)).Include(f => f.Course).Include(f => f.Mood).Include(f => f.Student);
             return View(feedbacks.ToList());
         }
 

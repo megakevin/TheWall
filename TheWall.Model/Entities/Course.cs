@@ -20,6 +20,7 @@ namespace TheWall.Model
 
         [Display(Name = "Course Description")]        
         [Required(ErrorMessageResourceName = "RequiredErrorMessage", ErrorMessageResourceType = typeof(Resources))]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         [Display(Name = "Course availability")]
