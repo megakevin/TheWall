@@ -23,13 +23,6 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Mood.Description)
     </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Feedback.Text)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Feedback.Text)
-    </div>
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()

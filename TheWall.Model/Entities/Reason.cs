@@ -14,12 +14,16 @@ namespace TheWall.Model
     
     public partial class Reason
     {
+        public Reason()
+        {
+            this.FeedbackReasons = new HashSet<FeedbackReason>();
+        }
+
         public int Id { get; set; }
         public string Description { get; set; }
         public int MoodId { get; set; }
-        public Nullable<int> FeedbackId { get; set; }
-    
-        public virtual Feedback Feedback { get; set; }
+        
         public virtual Mood Mood { get; set; }
+        public virtual ICollection<FeedbackReason> FeedbackReasons { get; set; }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Course.cs" />
     <Compile Include="Entities\Feedback.cs" />
+    <Compile Include="Entities\FeedbackReason.cs" />
     <Compile Include="Entities\Gender.cs" />
     <Compile Include="Entities\Mood.cs" />
     <Compile Include="Entities\Reason.cs" />

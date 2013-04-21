@@ -16,9 +16,9 @@ namespace TheWall.Model
     {
         public Feedback()
         {
-            this.Reasons = new HashSet<Reason>();
+            this.FeedbackReasons = new HashSet<FeedbackReason>();
         }
-    
+
         public int Id { get; set; }
         public string Text { get; set; }
         public int CourseId { get; set; }
@@ -28,6 +28,6 @@ namespace TheWall.Model
         public virtual Course Course { get; set; }
         public virtual Mood Mood { get; set; }
         public virtual Student Student { get; set; }
-        public virtual ICollection<Reason> Reasons { get; set; }
+        public virtual ICollection<FeedbackReason> FeedbackReasons { get; set; }
     }
 }

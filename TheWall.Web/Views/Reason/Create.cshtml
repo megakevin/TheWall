@@ -29,14 +29,6 @@
             @Html.ValidationMessageFor(model => model.MoodId)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FeedbackId, "Feedback")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("FeedbackId", String.Empty)
-            @Html.ValidationMessageFor(model => model.FeedbackId)
-        </div>
-
         <p>
             <input type="submit" value="Create" />
         </p>
